@@ -3,29 +3,28 @@ import PutData from "../helpers/putData.js";
 import { USER } from "../helpers/url.js";
 
 let inputName = document.getElementById("name");
-let inputEmail = document.getElementById("email ");
-let inputPass = document.getElementById("lastName");
+let inputEmail = document.getElementById("email");
+let inputPass = document.getElementById("password");
+let inputProfile = document.getElementById("profile");
 let btnEdit = document.getElementById("editar");
 let btnGuardar = document.getElementById("guardar");
 let btnEliminar = document.getElementById("eliminar");
 let form = document.querySelector("form");
 
-//!Obtiene la información de la sesión y cambia de json a objeto
 let infoUser = JSON.parse(sessionStorage.getItem("infoUser"));
 
-//!Mostrar datos en el perfil al cargar completamente la pagina desestructurando infoUser
+//Mostrar datos en el perfil
 document.addEventListener("DOMContentLoaded", () => {
   const { id, name, password, email } = infoUser;
 
   inputEmail.value = email;
   inputName.value = name;
   inputPass.value = password;
+  inputProfile.value = name;
 
   btnEliminar.setAttribute("id", id);
 });
 
-//!Al hacer click en editar se habilita la opción de escribir en los inputs y muestra el
-//!botón de guardar y oculta el de editar
 btnEdit.addEventListener("click", () => {
   inputEmail.removeAttribute("disabled");
   inputName.removeAttribute("disabled");
@@ -35,8 +34,6 @@ btnEdit.addEventListener("click", () => {
   btnEdit.classList.add("d-none");
 });
 
-//!Al dar submit extrae (desestructura) el id, actualiza objUser con los datos nuevos y llama la función putData
-//!para actualizar objUser perteneciente al id extraído de la url
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const { id } = infoUser;
@@ -50,14 +47,14 @@ form.addEventListener("submit", async (e) => {
   await PutData(`${USER}/${id}`, objUser);
 });
 
-//!Eliminar usuario, resetear y mandar al login
+//Eliminar usuario, resetear y mandar al login
 btnEliminar.addEventListener("click", (e) => {
   e.preventDefault();
   let id = e.target.id;
 
   DeleteData(`${USER}/${id}`).then(() => {
     form.reset();
-    window.location.href = "/html/login.html";
+    window.location.href = "../index/Img.html";
     alert("Usuario Eliminado Correctamente")
   });
 });

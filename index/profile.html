@@ -4,51 +4,75 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/profile.css">
     <!-- CSS only -->
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-    <title>Perfil</title>
+    <title>Perfil Usuario</title>
   </head>
+  <body style="background-color: #FEC7D7;">
+    <nav style="background-color: #FEC7D7;" >
+      <div class="container-fluid" style="background-color: #FEC7D7;">
+        <a class="navbar-brand" href="../index/Img.html"><p id="perfil"><b>Perfil</b></p></a>
+        
+      </div>
+    </nav>
+
     <section
       style="height: 80vh"
-      class="d-flex justify-content-center align-items-center"
-    >
-      <div class="card">
-        <div class="card-body text-center">
+      class="d-flex justify-content-center align-items-center">
+      <div class="card" style="background-color: #FEC7D7; border-color: #FEC7D7;">
+        <div class="card-body text-center" >
           <img
             class="w-25"
-            src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+            style="height: 110px; margin-top: -1rem ;"
+            src="/img/Ellipse 10.png"
           />
-          <form class="p-5">
-            <label for="name" style="margin-right: 26.5rem;" ><b>Nombre</b></label>
+          <input 
+              autocomplete="off"
+              id="profile"
+              type="text"
+              class="form-control mt-1"
+              style="background-color: #FEC7D7; margin-bottom: -1rem; border-top: -1rem; margin-left: 6rem; border-color: #FEC7D7; color: black; font-size: 20px;"
+              placeholder="Juan Mendez"
+              disabled
+            />
+          <form class="p-5" style="background-color: #FEC7D7;">
+            <label for="name" style="margin-right: 26.5rem; margin-left: -2rem;" ><b>Nombre</b></label>
             <input 
               autocomplete="off"
               id="name"
               type="text"
               class="form-control mt-1"
+              style="background-color: white; margin-bottom: 1rem; border-color: black; width: 19.5rem; margin-left: -2rem;"
+              placeholder="Juan"
               disabled
             />
-            <label for="lastName" style="margin-right: 28rem;" ><b>Apellido</b></label>
-            <input
-              autocomplete="off"
-              id="lastName"
-              type="text"
-              class="form-control mt-1"
-              disabled
-            />
-            <label for="email" style="margin-right: 25rem;" ><b>Email</b></label>
+            <label for="email" style="margin-right: 28rem;  margin-left: -2rem;" ><b>Email</b></label>
             <input
               autocomplete="off"
               id="email"
-              type="email"
+              type="text"
               class="form-control mt-1"
+              style="background-color: white; margin-bottom: 1rem; border-color: black; width: 19.5rem; margin-left: -2rem;"
+              placeholder="juanmendez123@gmail.com"
               disabled
             />
-            <button id="guardar" class="btn d-none btn-success mt-2">
+            <label for="email" style="margin-right: 25rem;  margin-left: -2rem;" ><b>Contraseña</b></label>
+            <input
+              autocomplete="off"
+              id="password"
+              type="text"
+              class="form-control mt-1"
+              style="background-color: white; margin-bottom: 1rem; border-color: black; width: 19.5rem; margin-left: -2rem;"
+              disabled
+            />
+            <button id="guardar" class="d-none" style="background-color: #0E172C; color: white;  border-radius: 98px; width: 155px; height: 50px; border-color: black; margin-top: 2rem;">
               Guardar cambios
             </button>
           </form>
@@ -66,6 +90,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/scripts/profile.js" type="module"></script>
+    <script src="../scripts/profile.js" type="module"></script>
   </body>
 </html>

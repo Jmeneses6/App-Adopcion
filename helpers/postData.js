@@ -6,7 +6,7 @@ const Postdata = async (url, datos) => {
   //!de proseguir con await, en caso de haber una excepción manda error en consola.  
   try {
     await axios.post(url, datos);
-    window.location.href = "../html/login.html";
+    window.location.href = "../index/login.html";
     alert("Usuario Creado exitosamente");
   } catch (error) {
     console.log(error);
