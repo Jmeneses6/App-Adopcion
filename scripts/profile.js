@@ -13,7 +13,7 @@ let form = document.querySelector("form");
 
 let infoUser = JSON.parse(sessionStorage.getItem("infoUser"));
 
-//Mostrar datos en el perfil
+//!Mostrar datos en el perfil
 document.addEventListener("DOMContentLoaded", () => {
   const { id, name, password, email } = infoUser;
 
@@ -32,8 +32,10 @@ btnEdit.addEventListener("click", () => {
 
   btnGuardar.classList.remove("d-none");
   btnEdit.classList.add("d-none");
+  btnEliminar.classList.add("d-none")
 });
 
+//!Editar información actualizada del infoUser mediante el put data 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const { id } = infoUser;
@@ -47,7 +49,7 @@ form.addEventListener("submit", async (e) => {
   await PutData(`${USER}/${id}`, objUser);
 });
 
-//Eliminar usuario, resetear y mandar al login
+//!Eliminar usuario, resetear y mandar al login
 btnEliminar.addEventListener("click", (e) => {
   e.preventDefault();
   let id = e.target.id;
